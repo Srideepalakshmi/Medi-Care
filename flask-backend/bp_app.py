@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template_string
 import pandas as pd
 import joblib
+import os
 
 app = Flask(__name__)
 
@@ -1114,4 +1115,5 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5004)
+    port = int(os.environ.get("PORT", 5000))  # Render provides PORT dynamically
+    app.run(host="0.0.0.0", port=port, debug=True)
