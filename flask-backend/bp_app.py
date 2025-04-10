@@ -11,8 +11,8 @@ df = pd.read_csv("flask-backend/Blood_Pressure_BP_Analyzer.csv")
 symptom_columns = [col for col in df.columns if col not in ["Age", "Gender", "class", "Disease", "Suggestion"]]
 
 # === Load model and vectorizer ===
-model = joblib.load("bp_model.pkl")
-vectorizer = joblib.load("bp_vectorizer.pkl")
+model = joblib.load("flask-backend/bp_model.pkl")
+vectorizer = joblib.load("flask-backend/bp_vectorizer.pkl")
 
 
 html_template = """
