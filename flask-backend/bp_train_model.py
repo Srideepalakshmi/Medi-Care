@@ -36,7 +36,7 @@ model = RandomForestClassifier(n_estimators=100, class_weight="balanced", random
 model.fit(X_train, y_train)
 
 # === Save model and vectorizer ===
-joblib.dump(model, "bp_model.pkl")
-joblib.dump(vectorizer, "bp_vectorizer.pkl")
+joblib.dump(model, "flask-backend/bp_model.pkl")
+joblib.dump(vectorizer, "flask-backend/bp_vectorizer.pkl")
 
 print("✅ Model and vectorizer saved successfully!")
