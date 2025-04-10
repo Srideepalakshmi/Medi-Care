@@ -5,7 +5,7 @@ import joblib
 app = Flask(__name__)
 
 # === Load CSV file ===
-df = pd.read_csv("Blood_Pressure_BP_Analyzer.csv")
+df = pd.read_csv("flask-backend/Blood_Pressure_BP_Analyzer.csv")
 
 # === Extract symptom columns ===
 symptom_columns = [col for col in df.columns if col not in ["Age", "Gender", "class", "Disease", "Suggestion"]]
