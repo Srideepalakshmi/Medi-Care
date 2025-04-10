@@ -19,4 +19,5 @@ pandas
 tensorflow
 scikit-learn
 numpy
+gunicorn
 
