@@ -1,0 +1,45 @@
+Domain,Type,Symptoms,Doctors
+Diabetes,Type 1 Diabetes,"Peeing often, feeling very thirsty and tired, losing weight",Endocrinologist
+Diabetes,Type 2 Diabetes,"Peeing often, feeling very thirsty, tired, and blurred vision",Endocrinologist
+Diabetes,Gestational Diabetes,"Thirsty, peeing often, tired during pregnancy",Endocrinologist
+Blood Pressure,Hypertension,"Headache, dizziness, nosebleeds,blurry vision","	Cardiologist"
+Blood Pressure,Hypotension,"Fainting, dizziness, blurry vision",Cardiologist
+Fever-related Illnesses,Dengue,"High fever, joint pain, rash, bleeding gums",General Physician / Infectious Disease Specialist
+Fever-related Illnesses,Malaria,"Fever, chills, sweating, body pain",General Physician / Infectious Disease Specialist
+Fever-related Illnesses,Typhoid,"Long-lasting fever, stomach pain, headache, weakness",General Physician / Infectious Disease Specialist
+Fever-related Illnesses,Viral Fever,"	Mild fever, body ache, sore throat",General Physician / Infectious Disease Specialist
+Asthma,Allergic Asthma,"Wheezing, cough, chest tightness",Pulmonologist / Allergist
+Asthma,Exercise-Induced Asthma,"Breathing trouble, chest tightness, coughing,Shortness of breath during exercise",Pulmonologist / Allergist
+Asthma,Occupational Asthma,"Breathing trouble, chest tightness, coughing,	Cough, chest tightness while working",Pulmonologist / Allergist
+Thyroid Disorders,Hypothyroidism,"Weight changes, fatigue, mood swings,Weight gain, tiredness, feeling cold",Endocrinologist
+Thyroid Disorders,Hyperthyroidism,"Weight changes, fatigue, mood swings,	Weight loss, anxiety, fast heartbeat",Endocrinologist
+Thyroid Disorders,Goiter,"Weight changes, fatigue, mood swings,Swelling in the neck, tight throat feeling",Endocrinologist
+Thyroid Disorders,Thyroid Nodules,"Weight changes, fatigue, mood swings,Neck lump, voice changes",Endocrinologist
+Heart Diseases,Coronary Artery Disease,"Chest pain, breathlessness, tiredness,	Chest pain, shortness of breath",Cardiologist
+Heart Diseases,Heart Attack,"Chest pain, breathlessness, tiredness,Strong chest pain, sweating, nausea",Cardiologist
+Heart Diseases,Heart Failure,"Chest pain, breathlessness, tiredness,	Swollen legs, breathlessness, tiredness",Cardiologist
+Heart Diseases,Arrhythmia,"Chest pain, breathlessness, tiredness,Irregular heartbeat, dizziness, fainting",Cardiologist
+Kidney Diseases,Acute Kidney Injury,"Swelling, low urine, back pain,Less urination, swelling, tiredness",Nephrologist
+Kidney Diseases,Chronic Kidney Disease,"Swelling, low urine, back pain,	Always tired, swelling, nausea",Nephrologist
+Kidney Diseases,Kidney Stones,"Swelling, low urine, back pain,Sharp back pain, blood in urine",Nephrologist
+Kidney Diseases,Urinary Tract Infection,"Swelling, low urine, back pain,Burning while peeing, cloudy urine",Nephrologist
+Liver Diseases,Jaundice,"Yellow skin, tiredness, stomach pain,Yellow eyes/skin, dark pee","	Hepatologist"
+Liver Diseases,Hepatitis,"Yellow skin, tiredness, stomach pain,Yellow skin, tiredness, nausea","	Hepatologist"
+Liver Diseases,Fatty Liver Disease,"Yellow skin, tiredness, stomach pain,	Tiredness, pain in upper belly",Hepatologist
+Liver Diseases,Cirrhosis,"Yellow skin, tiredness, stomach pain,	Weakness, swelling, yellow eyes","	Hepatologist"
+Anemia,Iron Deficiency Anemia,"Pale skin, fatigue, short breath,	Always tired, pale skin, cold hands",Hematologist
+Anemia,Vitamin Deficiency Anemia,"Pale skin, fatigue, short breath,Tired, sore tongue, pale skin",Hematologist
+Anemia,Sickle Cell Anemia,"Pale skin, fatigue, short breath,	Pain attacks, tiredness, swelling",Hematologist
+Anemia,Aplastic Anemia,"Pale skin, fatigue, short breath,	Easy bruising, tired, get infections easily",Hematologist
+Tuberculosis,Pulmonary TB,"Cough with blood, night sweats, weight loss,Cough with blood, weight loss, night sweating",Pulmonologist / Infectious Disease Specialist
+Tuberculosis,Extrapulmonary TB,"Cough with blood, night sweats, weight loss,	Swelling, fever, weight loss",Pulmonologist / Infectious Disease Specialist
+Tuberculosis,Latent TB,"Cough with blood, night sweats, weight loss",Pulmonologist / Infectious Disease Specialist
+Tuberculosis,Active TB,"Cough with blood, night sweats, weight loss,	Cough, weight loss, fever",Pulmonologist / Infectious Disease Specialist
+COVID-19,Mild,"Fever, loss of taste/smell, cough, tiredness,	Little discomfort, no major issues",Pulmonologist / General Physician
+COVID-19,Moderate,"Fever, loss of taste/smell, cough, tiredness,Noticeable symptoms, need rest",Pulmonologist / General Physician
+COVID-19,Severe,"Fever, loss of taste/smell, cough, tiredness,Serious symptoms, need urgent care",Pulmonologist / General Physician
+COVID-19,Post-COVID Syndrome,"Fever, loss of taste/smell, cough, tiredness,	Tiredness, brain fog, lingering cough",Pulmonologist / General Physician
+Skin Infections,Fungal,"Itching, red patches, rashes,Skin rash, itching, redness",Dermatologist
+Skin Infections,Bacterial,"Itching, red patches, rashes,Fever, swelling, pus",Dermatologist
+Skin Infections,Viral,"Itching, red patches, rashes,Fever, tiredness, cough",Dermatologist
+Skin Infections,Parasitic,"Itching, red patches, rashes,Stomach ache, diarrhea, weakness",Dermatologist

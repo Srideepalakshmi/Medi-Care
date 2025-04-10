@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medi-Care Website</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .button1{
+    height: 5rem;
+    width: 20rem;
+    background: var(--blue);
+    color: var(--wight);
+    font-size: 1.7rem;
+    text-transform: capitalize;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    border: .1rem solid var(--blue);
+ }
+
+               /* Hide the top Google Translate bar */
+.skiptranslate {
+    display: none !important;
+}
+
+/* Adjust body positioning */
+body {
+    top: 0 !important;
+    position: static !important;
+}
+
+/* Make "Powered by Google Translate" text and logo white */
+.goog-logo-link,
+.goog-te-gadget span:not(.goog-te-menu-value) {
+    color: white !important;
+    filter: brightness(0) invert(1); /* Makes the logo white */
+}
+/* Overlay white box completely over the "Powered by" */
+#google_translate_element .goog-te-gadget {
+    position: relative;
+    z-index: 1;
+}
+
+/* Left-aligned white overlay box */
+#google_translate_element::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0; /* Align to right */
+    height: 2.2em;
+    width: 17%;
+    background-color: white;
+    z-index: 2;
+}
+
+
+
+
+/* Ensure language dropdown remains visible */
+.goog-te-gadget,
+.goog-te-combo {
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+
+
+#section-title {
+  font-size: 30px;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #0188df;
+  background-color: #f8f8f8; 
+  text-size-adjust: 2.1rem;
+  
+}
+
+#section-title2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: left;
+  color: #0188df;
+  background-color: #f8f8f8; 
+  text-size-adjust: 2.1rem;
+  word-spacing: 5rem;
+  padding-left: 200px;
+}
+
+
+.review-form {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8; /* Light blue background */
+  color: #333;
+  padding: 2rem;
+  width: 100%; /* Full width */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center; /* Center the form elements horizontally */
+}
+
+.review-form input,
+.review-form textarea {
+  width: 90%; /* Keep consistent input size regardless of full-width form */
+  max-width: 500px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.review-form button {
+  width: 200px;
+  background-color: #007BFF;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.review-form button:hover {
+  background-color: #0056b3;
+}
+
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: right; /* center the children (review cards) */
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.review-card {
+  background-color: #fff; /* white background for the box */
+  color: #333;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+form, .review-container {
+  clear: both;
+}
+
+
+.review-card h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.review-card span {
+  font-size: 14px;
+  color: #4b0df6;
+}
+
+.review-card .stars {
+  color: #FFD700;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.review-card p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+.star-rating {
+  direction: rtl;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #FFD700;
+}
+
+
+.review-summary {
+  flex: 1;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  max-width: 350px;
+}
+
+.summary-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.summary-top h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.summary-top p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+#averageStars {
+  color: #FFD700;
+  font-size: 4rem;
+  font-weight: normal;
+}
+
+.rating-breakdown .star-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
+  font-weight: 500;
+
+}
+
+.rating-breakdown progress {
+  width: 60%;
+  height: 14px;
+  margin: 0 10px;
+  appearance: none;
+}
+
+.rating-breakdown progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.rating-breakdown progress::-webkit-progress-value {
+  background-color: #FFD700;
+  border-radius: 5px;
+}
+
+/* Red for 1-star */
+#star1Bar::-webkit-progress-value {
+  background-color: #ff0000;
+}
+
+/* Orange for 2-star */
+#star2Bar::-webkit-progress-value {
+  background-color: orange;
+}
+
+/* Yellow for 3-star */
+#star3Bar::-webkit-progress-value {
+  background-color: #FFD700;
+}
+
+/* Light green for 4-star */
+#star4Bar::-webkit-progress-value {
+  background-color: #FFD700;
+}
+
+/* Green for 5-star */
+#star5Bar::-webkit-progress-value {
+  background-color: #FFD700;
+}
+
+.review-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 0 15px #0188df;
+  width: 30%; /* Increased width */
+}
+
+.summary-top {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.summary-top div {
+  flex: 1;
+  background: #f6f6f6;
+  padding: 30px;
+  border-radius: 0px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.summary-top h3 {
+  font-size: 1.8rem; /* Increased title size */
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.summary-top p {
+  font-size: 2.5rem; /* Increased number size */
+  font-weight: bold;
+  margin: 0;
+  color: #111;
+}
+
+#averageStars {
+  display: block;
+  font-size: 4rem; /* Increased star size */
+  color: #ffcc00;
+  margin-top: 8px;
+}
+
+.rating-breakdown {
+  text-align: left;
+  padding: 0 20px;
+}
+
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.star-row progress {
+  flex: 1;
+  height: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  appearance: none;
+}
+
+.star-row progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+.star-row progress::-webkit-progress-value {
+  background-color: #FFD700;
+  border-radius: 10px;
+}
+
+.stars {
+  font-size: 28px;
+  color: #ffc107;
+}
+
+.rating-breakdown {
+  font-size: 18px;
+}
+
+.rating-breakdown .star-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.rating-breakdown progress {
+  flex: 1;
+  height: 18px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.review-section-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 100px;
+}
+
+.review-container {
+  flex: 2;
+}
+
+.review-summary {
+  flex: 1;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #0188df;
+  padding: 65px;
+  text-align: center;
+}
+
+
+
+
+        </style>
+</head>
+
+<body>
+
+
+    <!-- header navbar section start  -->
+
+    <header>
+
+        <!-- logo name  -->
+        <a href="#" class="logo"><b><span>M</span>edi - <span>C</span>are</b></a>
+
+        <!-- navbar link  -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#Vitality">Vitality</a></li>
+                <li><a href="#review">Reviews</a></li>
+                <li><a href="#News">News</a></li>
+                <li><a href="#contact">contact</a></li>
+                <div id="google_translate_element"></div>
+            <script>
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+            </script>
+            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+                  
+            </ul>
+        </nav>
+        
+
+        <div class="fas fa-bars"></div>
+        
+    </header>
+    <!-- header navbar section end  -->
+
+    <!-- home section start  -->
+
+    <section id="home" class="home">
+        
+        <div class="row">
+
+            <!-- home images  -->
+            <div class="images">
+                <img src="./images/home.png" alt="">
+            </div>
+
+            <!-- home heading  -->
+            <div class="content">
+                <h1><span>Stay</span> Safe, <span>Stay</span> Healthy.</h1>
+                <p>Your Trusted Health Companion</p>
+                <a href="types.html"><button class="button1">Analyze</button></a>
+            </div>
+            <!-- Dr.SymptoCare Floating Button -->
+            <div id="chatbot-notification">Need assistance? Dr. SymptoCare is here to help you out!</div>
+            <a href="https://flask-backend-xyz.onrender.com/" id="chatbot-circle" title="Chat with Dr.SymptoCare">
+                <img src="https://i.pinimg.com/736x/01/a5/90/01a590499049d2dbf10e8f7b845dbea9.jpg" alt="Dr.SymptoCare">
+            </a>
+
+        </div>
+    </section>
+    <!-- home section end  -->
+
+    <!-- about section start  -->
+
+    <section id="about" class="about">
+
+        <h1 class="heading">About our facility</h1>
+        <h3 class="title"><b>learn and explore our facility</b></h3>
+
+        <div class="box-container">
+
+            <!-- start here  -->
+            <div class="box">
+                <!-- about images  -->
+                <div class="images">
+                    <img src="https://t3.ftcdn.net/jpg/03/25/80/02/360_F_325800248_w9sG5xSOXAK7S0zZaRIhIR3RW6RtT3WF.jpg" alt="">
+                </div>
+                
+                <!-- about heading & text  -->
+                <div class="content">
+                    <h3>Explore More...!</h3>
+                    <p>Discover how our website spreads awareness about major diseases, shares prevention tips, and brings you reviews from medical experts and users.</p>
+                  
+                    <a href="about.html"><button class="button">Explore</button></a>  
+                </div>
+            </div>
+            <!-- end here  -->
+
+            
+           
+           </div>
+    </section>
+
+    <!-- about section end  -->
+    
+    <!-- card section start  -->
+
+    <section id="Vitality" class="card">
+
+        <div class="container">
+
+            <h1 class="heading">Vitality<br>(Healthy life)</h1>
+            <h3 class="title"><b>Here are the best healthy foods and exercises suggested for you!</b></h3>
+
+            <div class="box-container">
+
+                <!-- start here  -->
+                <div class="box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnQv-M_QSBNIMSJCf4FDn3ub_wNXaEHXR7Rg&s" alt="">                
+                    
+                    <div class="content">
+                            <h2>Healthy Foods Suggestions</h2>
+                            
+                        
+
+                        <!-- card icons  -->
+                        <div class="icons">
+                            <a href="food.html"><button class="button">explore</button></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end here  -->
+
+                 
+                 <!-- start here  -->
+                 <div class="box">
+                    <img src="https://img.freepik.com/premium-vector/health-fitness-cartoon_24640-25695.jpg" alt="">                
+                    
+                    <div class="content">
+                            <h2>Exercises Suggestions</h2>
+                        
+                        
+
+                        <!-- card icons  -->
+                        <div class="icons">
+                            <a href="exercise.html"><button class="button">explore</button></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end here  -->
+
+            </div>
+        </div>
+    </section>
+    <!-- card section end  -->
+
+<!-- review starts -->
+<section id="review" class="about">
+  <br><br><br><br><br><br>
+  <h2 id="section-title2">Reviews!</h2>
+  <div class="review-section-wrapper" style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <!-- LEFT: Reviews -->
+    <section id="reviews" class="review-container" style="flex: 1;">
+      <!-- Container where reviews are injected -->
+      <div id="reviewsList"></div>
+
+      <!-- View More / Less Buttons -->
+      <div class="review-buttons" style="text-align: left; margin-top: 20px;">
+        <button id="viewMoreBtn" style="display: none; padding: 10px 20px; margin: 5px;">View More Reviews</button>
+        <button id="viewLessBtn" style="display: none; padding: 10px 20px; margin: 5px;">View Less Reviews</button>
+      </div>
+    </section>
+
+    <!-- RIGHT: Summary -->
+    <div class="review-summary" style="flex: 0.4; min-width: 250px;">
+      <div class="summary-top">
+        <div>
+          <h3>Average Rating</h3>
+          <p>
+            <span id="averageRating">0.0</span>
+            <span class="stars" id="averageStars">★★★★★</span>
+          </p>
+        </div>
+        <div>
+          <h3>Total Reviews</h3>
+          <p id="totalReviews">0</p>
+        </div>
+      </div>
+
+      <div class="rating-breakdown">
+        <div class="star-row"><span>5★</span><progress id="star5Bar" max="100" value="0"></progress><span id="count5">(0)</span></div>
+        <div class="star-row"><span>4★</span><progress id="star4Bar" max="100" value="0"></progress><span id="count4">(0)</span></div>
+        <div class="star-row"><span>3★</span><progress id="star3Bar" max="100" value="0"></progress><span id="count3">(0)</span></div>
+        <div class="star-row"><span>2★</span><progress id="star2Bar" max="100" value="0"></progress><span id="count2">(0)</span></div>
+        <div class="star-row"><span>1★</span><progress id="star1Bar" max="100" value="0"></progress><span id="count1">(0)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br><br><br><br>
+<h2 id="section-title"><i>Rate Your Experience!</i></h2>
+
+<form id="reviewForm" class="review-form">
+  <input type="text" id="name" placeholder="Your name" required>
+  <input type="email" id="email" placeholder="Your email" required>
+  <div class="star-rating">
+    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+  </div>
+  <textarea id="comment" placeholder="Write your comment..." required></textarea>
+  <button type="submit">Submit Review</button>
+</form>
+
+<br><br>
+
+<!-- Axios Script -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Review Logic Script -->
+<script>
+  let allReviews = [];
+  const reviewsPerPage = 2;
+  let showingAll = false;
+
+  async function loadReviews() {
+    try {
+      const res = await axios.get('/api/reviews');
+      allReviews = res.data;
+      updateSummary();
+      renderReviews(false);
+    } catch (error) {
+      console.error("Failed to load reviews:", error);
+    }
+  }
+
+  function updateSummary() {
+    const total = allReviews.length;
+    let sum = 0;
+    const starCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
+    allReviews.forEach(review => {
+      const rating = parseInt(review.rating);
+      sum += rating;
+      starCounts[rating]++;
+    });
+
+    const avg = total > 0 ? (sum / total).toFixed(1) : 0;
+    const avgStars = '★'.repeat(Math.round(avg)) + '☆'.repeat(5 - Math.round(avg));
+
+    document.getElementById('totalReviews').textContent = total;
+    document.getElementById('averageRating').textContent = avg;
+    document.getElementById('averageStars').textContent = avgStars;
+
+    for (let i = 1; i <= 5; i++) {
+      const percent = total > 0 ? (starCounts[i] / total) * 100 : 0;
+      document.getElementById(`star${i}Bar`).value = percent;
+      document.getElementById(`count${i}`).textContent = `(${starCounts[i]})`;
+    }
+  }
+
+  function renderReviews(showAll) {
+    const container = document.getElementById('reviewsList');
+    container.innerHTML = "";
+
+    const reviewsToShow = showAll ? allReviews : allReviews.slice(0, reviewsPerPage);
+
+    reviewsToShow.forEach(review => {
+      const rating = parseInt(review.rating);
+      const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+      const div = document.createElement('div');
+      div.classList.add('review-card');
+      div.style.border = "1px solid #ccc";
+      div.style.padding = "10px";
+      div.style.marginBottom = "10px";
+      div.style.borderRadius = "8px";
+
+      div.innerHTML = `
+        <div class="review-content">
+          <h3>${review.name} <span style="color: green;"></span></h3>
+          <h3>${review.email} <span style="color: green;"></span></h3>
+          <div class="stars">${stars}</div>
+          <p>${review.comment}</p>
+        </div>
+      `;
+
+      container.appendChild(div);
+    });
+
+    const viewMoreBtn = document.getElementById('viewMoreBtn');
+    const viewLessBtn = document.getElementById('viewLessBtn');
+
+    if (allReviews.length <= reviewsPerPage) {
+      viewMoreBtn.style.display = 'none';
+      viewLessBtn.style.display = 'none';
+    } else {
+      viewMoreBtn.style.display = showAll ? 'none' : 'inline-block';
+      viewLessBtn.style.display = showAll ? 'inline-block' : 'none';
+    }
+
+    showingAll = showAll;
+  }
+
+  document.getElementById('reviewForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const ratingInput = document.querySelector('input[name="rating"]:checked');
+    const comment = document.getElementById('comment').value.trim();
+
+    if (!ratingInput) {
+      alert("Please select a rating.");
+      return;
+    }
+
+    const rating = ratingInput.value;
+
+    try {
+      await axios.post('/api/reviews', {
+        name, email, rating, comment
+      });
+
+      e.target.reset();
+      loadReviews();
+    } catch (error) {
+      console.error("Error submitting review:", error);
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadReviews();
+
+    document.getElementById('viewMoreBtn').addEventListener('click', () => renderReviews(true));
+    document.getElementById('viewLessBtn').addEventListener('click', () => renderReviews(false));
+  });
+</script>
+<!-- review ends -->
+
+
+    
+
+
+    <!-- blog section start  -->
+
+    <section id="News" class="News">
+
+        <h1 class="heading">News</h1>
+        <h3 class="title"><b>Here are some recent dangerous diseases and their preventive measures.</b></h3>
+
+        <div class="box-container">
+
+            <!-- start here  -->
+            <div class="box">
+                <!-- images  -->
+                <img src="./images/blog 1.png" alt="">
+
+                <div class="content">
+                    
+                        <h2>diabetes</h2>
+                    
+                    <p>Diabetes is a chronic disease that occurs when the body either doesn’t produce enough insulin or cannot effectively use the insulin it produces, leading to high blood sugar levels.<br><br>
+                    <b>Prevention:</b> Maintain a healthy lifestyle with a balanced diet, regular physical activity, and weight management to reduce the risk of  diabetes.</p>
+                     <!-- button  --><br>
+                    </div>
+            </div>
+            <!-- end here  -->
+
+            
+            <!-- start here  -->
+            <div class="box">
+                <!-- images  -->
+                <img src="./images/blog 2.png" alt="">
+
+                <div class="content">
+                    
+                        <h2>covid-19 vaccine</h2>
+                   
+                    <p>COVID-19 is a contagious respiratory illness caused by the SARS-CoV-2 virus, leading to symptoms like fever, cough, and difficulty breathing, with severe cases requiring hospitalization.
+
+                       <br><br><b> Prevention: </b>Follow hygiene measures like wearing masks, washing hands frequently, maintaining social distance, and getting vaccinated to reduce infection risk.
+                        <br><br>
+                    </p>
+                     <!-- button  -->
+                   </div>
+            </div>
+            <!-- end here  -->
+
+            
+            <!-- start here  -->
+            <div class="box">
+                <!-- images  -->
+                <img src="./images/blog 3.png" alt="">
+
+                <div class="content">
+                    
+                        <h2>Dengue Fever</h2>
+                    
+                    <p>Dengue fever is a mosquito-borne viral infection causing high fever, severe body pain, and rash, with severe cases leading to bleeding or shock.
+
+                         <br><br><b>Prevention:</b>Use insect repellent, wear protective clothing, and eliminate standing water to prevent mosquito breeding.<br></p>
+                     <!-- button  --><br><br>
+                    </div>
+            </div>
+            <!-- end here  -->
+        </div>
+    </section>
+
+
+
+    <!-- blog section end  -->
+     <!-- contact section start  -->
+
+    <section id="contact" class="contact">
+        <h1 class="heading">Contact Us</h1>
+        <h3 class="title"><b>You can talk to us anytime</b></h3>
+    
+        <div class="row">
+            <!-- Form Image -->
+            <div class="images">
+                <img src="./images/form.png" alt="Contact Form">
+            </div>
+    
+            <!-- Contact Form -->
+            <div class="form-container">
+                <form id="contactForm">
+                    <input type="text" placeholder="Full Name" id="contactname" required>
+                    <input type="email" placeholder="Enter Your Email" id="contactemail" required>
+                    <input type="number" placeholder="Phone" id="contactphone" required>
+                    <textarea placeholder="Your Message" id="contactmessage" cols="30" rows="10" required></textarea>
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+        </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Contact Form Script -->
+<script>
+  document.getElementById("contactForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("contactname").value.trim();
+  const email = document.getElementById("contactemail").value.trim();
+  const phone = document.getElementById("contactphone").value.trim();
+  const message = document.getElementById("contactmessage").value.trim();
+
+  if (!name || !email || !phone || !message) {
+    alert("Please fill in all fields before submitting.");
+    return;
+  }
+
+  try {
+    const response = await axios.post("/contact", {
+      name,
+      email,
+      phone,
+      message
+    });
+
+    alert(response.data.message || "Message sent successfully!");
+    e.target.reset();
+  } catch (error) {
+    console.error("Submission failed:", error);
+    alert("Something went wrong. Please try again later.");
+  }
+});
+
+</script>
+
+    
+
+
+
+
+    </section>
+
+<!-- Axios CDN -->
+
+
+    <!-- contact section end  -->
+
+
+    <!-- footer section start  -->
+
+    <section class="footer">
+
+        <div class="box">
+            <h2 class="logo"><span>M</span>edi - <span>C</span>ares</h2>
+
+            <p>Your Trusted Health Companion.<br> Explore it!</p>
+        </div>
+
+        <div class="box">
+            <h2 class="logo"><span>S</span>hare</h2>
+
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i> medicare</a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i> @medicare</a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i> medi_care</a>
+            <a href="#" target="_blank"><i class="fab fa-pinterest"></i> medi-care.com</a>
+            
+        </div>
+
+        <div class="box">
+            <h2 class="logo"><span>L</span>inks</h2>
+
+            <a href="#">home</a>
+            <a href="#about">about</a>
+            <a href="#Vitality">Vitality</a>
+           
+            <a href="#News">News</a>
+            <a href="#contact">contact</a>
+        </div>
+
+
+        <h1 class="credit">@Medi-Care <br> all right reserved.</h1>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- footer section end  -->
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <!-- jquery cdn link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
