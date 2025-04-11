@@ -6,10 +6,10 @@ import numpy as np
 app = Flask(__name__)
 
 # Load model and resources
-model = load_model("ann_model.h5")
-label_encoder = joblib.load("label_encoder.pkl")
-symptom_binarizer = joblib.load("symptom_binarizer.pkl")
-doctor_map = joblib.load("doctor_map.pkl")
+model = load_model("flask-backend/ann_model.h5")
+label_encoder = joblib.load("flask-backend/label_encoder.pkl")
+symptom_binarizer = joblib.load("flask-backend/symptom_binarizer.pkl")
+doctor_map = joblib.load("flask-backend/doctor_map.pkl")
 
 # Context storage
 chat_context = {}
@@ -94,4 +94,5 @@ def chatbot_response():
                 "For more information, please consult with a doctor or visit our website.")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 50012))  # Render provides PORT dynamically
+    app.run(host="0.0.0.0", port=port, debug=True)
