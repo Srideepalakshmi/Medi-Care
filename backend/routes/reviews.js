@@ -1,13 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const Review = require('/models/Review.js'); // adjust path if needed
+const Review = require('backend/models/Review.js'); // adjust path if needed
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://medi-care:srideepa@17@medicare-cluster.ib986vh.mongodb.net/', {
+mongoose.connect('mongodb+srv://medi-care:srideepa%4017@medicare-cluster.ib986vh.mongodb.net/reviewDB', {
     // you can omit useNewUrlParser and useUnifiedTopology for Mongoose 7+
 }).then(() => console.log("MongoDB connected"));
 
