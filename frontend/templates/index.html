@@ -642,7 +642,7 @@ form, .review-container {
 
   async function loadReviews() {
     try {
-      const res = await axios.get('https://mongo-tkjl.onrender.com');
+      const res = await axios.get('https://mongo-tkjl.onrender.com/api/reviews'); // ✅ Correct API GET endpoint
       allReviews = res.data;
       updateSummary();
       renderReviews(false);
@@ -695,8 +695,8 @@ form, .review-container {
 
       div.innerHTML = `
         <div class="review-content">
-          <h3>${review.name} <span style="color: green;"></span></h3>
-          <h3>${review.email} <span style="color: green;"></span></h3>
+          <h3>${review.name}</h3>
+          <h4>${review.email}</h4>
           <div class="stars">${stars}</div>
           <p>${review.comment}</p>
         </div>
@@ -734,20 +734,20 @@ form, .review-container {
     const rating = ratingInput.value;
 
     try {
-      await axios.post('/api/reviews', {
+      await axios.post('https://mongo-tkjl.onrender.com/api/reviews', { // ✅ Correct POST endpoint
         name, email, rating, comment
       });
 
       e.target.reset();
-      loadReviews();
+      loadReviews(); // Reload reviews after submission
     } catch (error) {
       console.error("Error submitting review:", error);
+      alert("Submission failed. Try again.");
     }
   });
 
   document.addEventListener('DOMContentLoaded', () => {
     loadReviews();
-
     document.getElementById('viewMoreBtn').addEventListener('click', () => renderReviews(true));
     document.getElementById('viewLessBtn').addEventListener('click', () => renderReviews(false));
   });
