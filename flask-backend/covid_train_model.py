@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # === Load dataset ===
-df = pd.read_csv("COVID19_Coronavirus_Analyzer.csv")
+df = pd.read_csv("flask-backend/COVID19_Coronavirus_Analyzer.csv")
 
 # === Drop missing values (if any) ===
 df.dropna(inplace=True)
@@ -36,7 +36,7 @@ model = RandomForestClassifier(n_estimators=100, class_weight="balanced", random
 model.fit(X_train, y_train)
 
 # === Save model and vectorizer ===
-joblib.dump(model, "covid_model.pkl")
-joblib.dump(vectorizer, "covid_vectorizer.pkl")
+joblib.dump(model, "flask-backend/covid_model.pkl")
+joblib.dump(vectorizer, "flask-backend/covid_vectorizer.pkl")
 
 print("✅ Model and vectorizer saved successfully!")
