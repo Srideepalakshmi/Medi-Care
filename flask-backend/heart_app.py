@@ -5,14 +5,14 @@ import joblib
 app = Flask(__name__)
 
 # === Load CSV file ===
-df = pd.read_csv("Heart_Diseases_Analyzer.csv")
+df = pd.read_csv("flask-backend/Heart_Diseases_Analyzer.csv")
 
 # === Extract symptom columns ===
 symptom_columns = [col for col in df.columns if col not in ["Age", "Gender", "class", "Disease", "Suggestion"]]
 
 # === Load model and vectorizer ===
-model = joblib.load("heart_model.pkl")
-vectorizer = joblib.load("heart_vectorizer.pkl")
+model = joblib.load("flask-backend/heart_model.pkl")
+vectorizer = joblib.load("flask-backend/heart_vectorizer.pkl")
 
 
 html_template = """
