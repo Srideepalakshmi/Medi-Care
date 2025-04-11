@@ -1113,6 +1113,6 @@ def predict():
         print("🔥 Error:", e)
         return jsonify({"error": str(e)}), 500
 
-
 if __name__ == "__main__":
-    app.run(debug=True, port=5006)
+    port = int(os.environ.get("PORT", 5006))  # Render provides PORT dynamically
+    app.run(host="0.0.0.0", port=port, debug=True)
