@@ -33,11 +33,12 @@ const reviewSchema = new mongoose.Schema({
 const Review = mongoose.model("Review", reviewSchema);
 
 // ✅ Serve Static Files
-app.use(express.static(path.join(__dirname, 'frontend', 'templates')));
+const staticPath = path.join(__dirname, 'frontend', 'templates');
+app.use(express.static(staticPath));
 
 // ✅ Root Route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'templates', 'index.html'));
+    res.sendFile(path.join(staticPath, 'index.html'));
 });
 
 // ✅ POST: Contact Form Submission
