@@ -642,7 +642,7 @@ form, .review-container {
 
   async function loadReviews() {
     try {
-      const res = await axios.get('/api/reviews');
+      const res = await axios.get('https://mongo-tkjl.onrender.com');
       allReviews = res.data;
       updateSummary();
       renderReviews(false);
@@ -868,7 +868,7 @@ form, .review-container {
   }
 
   try {
-    const response = await axios.post("/contact", {
+    const response = await axios.post("https://mongo-tkjl.onrender.com", {
       name,
       email,
       phone,
