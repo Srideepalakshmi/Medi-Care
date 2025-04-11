@@ -1081,7 +1081,7 @@ def predict():
             return jsonify({
                 "Prediction": "Negative",
                 "Disease": "None",
-                "Suggestion": "No Asthma diabetes detected. Maintain a healthy lifestyle. Consult a general physician if symptoms persist."
+                "Suggestion": "No Asthma disease detected. Maintain a healthy lifestyle. Consult a general physician if symptoms persist."
             })
 
         # 🧠 Vectorize symptoms
