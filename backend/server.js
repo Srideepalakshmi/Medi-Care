@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(cors());
@@ -30,6 +31,14 @@ const reviewSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 const Review = mongoose.model("Review", reviewSchema);
+
+// ✅ Serve Static Files
+app.use(express.static(path.join(__dirname, 'frontend', 'templates')));
+
+// ✅ Root Route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'templates', 'index.html'));
+});
 
 // ✅ POST: Contact Form Submission
 app.post("/api/contact", async (req, res) => {
