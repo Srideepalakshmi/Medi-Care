@@ -981,7 +981,7 @@ label {
 
         <div class="result" id="result">
             <p><b>Positive/Negative:</b> <span id="Prediction"></span></p><br><br>
-            <p><b>Type:</b> <span id="Disease"></span></p><br><br>
+            <p><b>Prediction</b> <span id="Disease"></span></p><br><br>
             <p><b>Suggestion:</b> <span id="Suggestion"></span></p><br><br><br>
            
         </div>
