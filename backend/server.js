@@ -1,83 +1,81 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
 app.use(cors());
-app.use(express.json()); // Parse JSON request bodies
+app.use(express.json());
 
-// MongoDB Connection
-mongoose.connect('mongodb+srv://medi-care:srideepa%4017@medicare-cluster.ib986vh.mongodb.net/reviewDB', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(() => console.log("✅ MongoDB Connected"))
-.catch(err => console.error("❌ MongoDB connection error:", err));
+// ✅ MongoDB Connection
+mongoose.connect('mongodb+srv://medi-care:srideepa%4017@medicare-cluster.ib986vh.mongodb.net/reviewDB')
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
 
-// Contact Schema and Model
+// ✅ Contact Schema & Model
 const contactSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: String, required: true },
     message: { type: String, required: true },
-});
+}, { timestamps: true });
+
 const Contact = mongoose.model("Contact", contactSchema);
 
-// Review Schema and Model
+// ✅ Review Schema & Model
 const reviewSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
     rating: { type: Number, required: true },
     comment: { type: String, required: true },
-});
+}, { timestamps: true });
+
 const Review = mongoose.model("Review", reviewSchema);
 
-// Contact Form API
-app.post("/contact", async (req, res) => {
+// ✅ POST: Contact Form Submission
+app.post("/api/contact", async (req, res) => {
     try {
         const { name, email, phone, message } = req.body;
         if (!name || !email || !phone || !message) {
-            return res.status(400).json({ message: "All fields are required!" });
+            return res.status(400).json({ message: "All contact fields are required." });
         }
         const newContact = new Contact({ name, email, phone, message });
         await newContact.save();
-        res.status(201).json({ message: "Query submitted successfully!" });
+        res.status(201).json({ message: "✅ Contact query submitted successfully." });
     } catch (error) {
-        console.error("Error saving contact:", error);
-        res.status(500).json({ message: "Error saving data", error });
+        console.error("❌ Error saving contact:", error);
+        res.status(500).json({ message: "Error saving contact data." });
     }
 });
 
-// Review Form API - POST
-app.post("/api/reviews", async (req, res) => {
+// ✅ POST: Submit Review
+app.post('/api/reviews', async (req, res) => {
     try {
         const { name, email, rating, comment } = req.body;
         if (!name || !email || !rating || !comment) {
-            return res.status(400).json({ message: "All review fields are required!" });
+            return res.status(400).json({ message: "All review fields are required." });
         }
-
         const newReview = new Review({ name, email, rating, comment });
         await newReview.save();
-        res.status(201).json({ message: "Review submitted successfully!" });
+        res.status(201).json({ message: "✅ Review submitted successfully." });
     } catch (error) {
-        console.error("Error saving review:", error);
-        res.status(500).json({ message: "Error saving review", error });
+        console.error("❌ Error saving review:", error);
+        res.status(500).json({ message: "Error saving review." });
     }
 });
 
-// Review List API - GET
-app.get("/api/reviews", async (req, res) => {
+// ✅ GET: Fetch All Reviews
+app.get('/api/reviews', async (req, res) => {
     try {
-        const allReviews = await Review.find();
-        res.json(allReviews);
+        const reviews = await Review.find().sort({ createdAt: -1 });
+        res.json(reviews);
     } catch (error) {
-        console.error("Error fetching reviews:", error);
-        res.status(500).json({ message: "Error retrieving reviews", error });
+        console.error("❌ Error fetching reviews:", error);
+        res.status(500).json({ message: "Error retrieving reviews." });
     }
 });
 
-// Start Server
-const PORT = 5002;
+// ✅ Start Server
+const PORT = 5001;
 app.listen(PORT, () => {
-    console.log(`🚀 Server is running on port ${PORT}`);
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
