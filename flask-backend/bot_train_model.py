@@ -7,7 +7,7 @@ from sklearn.neural_network import MLPClassifier
 import pickle
 
 # Load CSV
-df = pd.read_csv("medical_symptoms.csv")
+df = pd.read_csv("flask-backend/medical_symptoms.csv")
 df["Symptoms"] = df["Symptoms"].str.lower().str.strip()
 
 # Process symptoms into list
@@ -26,7 +26,7 @@ model = MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=500, random_state=42
 model.fit(X, y)
 
 # Save the model and encoders
-with open("bot_model.pkl", "wb") as f:
+with open("flask-backend/bot_model.pkl", "wb") as f:
     pickle.dump((model, mlb, label_encoder), f)
 
 print("✅ Model and Vectorizer saved successfully!")
