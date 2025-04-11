@@ -16,7 +16,7 @@ chat_context = {}
 
 @app.route("/")
 def index():
-    return render_template("indexbot.html")
+    return render_template("frontend/templates/indexbot.html")
 
 @app.route("/get", methods=["POST"])
 def chatbot_response():
