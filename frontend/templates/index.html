@@ -855,35 +855,35 @@ form, .review-container {
 <!-- Contact Form Script -->
 <script>
   document.getElementById("contactForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const name = document.getElementById("contactname").value.trim();
-  const email = document.getElementById("contactemail").value.trim();
-  const phone = document.getElementById("contactphone").value.trim();
-  const message = document.getElementById("contactmessage").value.trim();
+    const name = document.getElementById("contactname").value.trim();
+    const email = document.getElementById("contactemail").value.trim();
+    const phone = document.getElementById("contactphone").value.trim();
+    const message = document.getElementById("contactmessage").value.trim();
 
-  if (!name || !email || !phone || !message) {
-    alert("Please fill in all fields before submitting.");
-    return;
-  }
+    if (!name || !email || !phone || !message) {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
 
-  try {
-    const response = await axios.post("https://mongo-tkjl.onrender.com", {
-      name,
-      email,
-      phone,
-      message
-    });
+    try {
+      const response = await axios.post("https://mongo-tkjl.onrender.com/contact", {
+        name,
+        email,
+        phone,
+        message
+      });
 
-    alert(response.data.message || "Message sent successfully!");
-    e.target.reset();
-  } catch (error) {
-    console.error("Submission failed:", error);
-    alert("Something went wrong. Please try again later.");
-  }
-});
-
+      alert(response.data.message || "Message sent successfully!");
+      e.target.reset();
+    } catch (error) {
+      console.error("Submission failed:", error);
+      alert("Something went wrong. Please try again later.");
+    }
+  });
 </script>
+
 
     
 
