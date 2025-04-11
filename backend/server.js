@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json()); // To parse JSON request bodies
 
 // MongoDB Connection
-mongoose.connect('mongodb+srv://medi-care:srideepa@17@medicare-cluster.ib986vh.mongodb.net/', {
+mongoose.connect('mongodb+srv://medi-care:srideepa%4017@medicare-cluster.ib986vh.mongodb.net/reviewDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
