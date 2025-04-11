@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medi-Care Website</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+<style>
+    .disease-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px; /* Adjusts column spacing */
+}
+
+.disease-card {
+    width: 420px;
+    height: 420px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 50px; /* Increases row spacing */
+}
+
+    .disease-card:hover {
+        transform: scale(1.1); /* Slight zoom effect */
+    }
+    
+    .disease-card img {
+        width: 100%;
+        height: 220px; /* Adjusted image height */
+        object-fit: cover;
+        border-radius: 8px 8px 0 0; /* Matching border-radius */
+    }
+    
+    .content {
+        padding: 12px; /* Adjusted padding */
+        text-align: center;
+    }
+  
+               /* Hide the top Google Translate bar */
+.skiptranslate {
+    display: none !important;
+}
+
+/* Adjust body positioning */
+body {
+    top: 0 !important;
+    position: static !important;
+}
+
+/* Make "Powered by Google Translate" text and logo white */
+.goog-logo-link,
+.goog-te-gadget span:not(.goog-te-menu-value) {
+    color: white !important;
+    filter: brightness(0) invert(1); /* Makes the logo white */
+}
+/* Overlay white box completely over the "Powered by" */
+#google_translate_element .goog-te-gadget {
+    position: relative;
+    z-index: 1;
+}
+
+/* Left-aligned white overlay box */
+#google_translate_element::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0; /* Align to right */
+    height: 2.2em;
+    width: 13.5%;
+    background-color: white;
+    z-index: 2;
+}
+
+
+
+
+/* Ensure language dropdown remains visible */
+.goog-te-gadget,
+.goog-te-combo {
+    display: inline-block !important;
+    visibility: visible !important;
+}
+</style>    
+</head>
+
+<body>
+
+    <!-- header navbar section start  -->
+    <header>
+        <a href="#" class="logo"><b><span>M</span>edi - <span>C</span>are</b></a>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="index.html#about">about</a></li>
+                <li><a href="index.html#Vitality">Vitality</a></li>
+                <li><a href="index.html#review">Reviews</a></li>
+                <li><a href="index.html#News">News</a></li>
+                <li><a href="index.html#contact">contact</a></li>
+                <script>
+                  function googleTranslateElementInit() {
+                      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                  }
+                  </script>
+                  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      
+                  </select>
+            </ul>
+        </nav>
+
+        <div class="fas fa-bars"></div>
+    </header>
+    <!-- header navbar section end  -->
+
+    <!-- Disease Cards Section Start -->
+    <section class="card">
+        <div class="container">
+            <h1 class="heading"><b>Welcome to Medi-Cares</b></h1>
+            <h3 class="title"><i><b>Exercises for Beginners</b></i></h3><br><br>
+            <h3 class="title"><b></b></h3><br><br>
+            <div id="chatbot-notification">Need assistance? Dr. SymptoCare is here to help you out!</div>
+            <a href="https://flask-backend-xyz.onrender.com/" id="chatbot-circle" title="Chat with Dr.SymptoCare">
+                <img src="https://i.pinimg.com/736x/01/a5/90/01a590499049d2dbf10e8f7b845dbea9.jpg" alt="Dr.SymptoCare">
+            </a>
+            <div class="container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+
+                <!-- 1 -->
+                <div class="box4">
+                  <img src="https://cdn.shopify.com/s/files/1/0075/4673/2662/files/how-to-do-jumping-jacks.jpg" alt="Jumping Jacks" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">Jumping Jacks</h3>
+                    <p style="font-size: 2.1rem;">A full-body warm-up exercise that increases your heart rate and warms up the muscles.</p>
+                  </div>
+                </div>
+                
+                <!-- 2 -->
+                <div class="box4">
+                  <img src="https://static.vecteezy.com/system/resources/previews/005/178/396/non_2x/woman-doing-wall-sit-exercise-free-vector.jpg" alt="Wall Sit" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">Wall Sit</h3>
+                    <p style="font-size: 2.1rem;">Strengthens your legs and improves endurance by holding a seated position against a wall.</p>
+                  </div>
+                </div>
+              
+                <!-- 3 -->
+                <div class="box4">
+                  <img src="https://media.istockphoto.com/id/1281672729/vector/woman-doing-exercise-with-knee-push-up-in-2-steps.jpg?s=612x612&w=0&k=20&c=8b9jCCJrmX9KYATzg5XDE717PQb8S4Hk1yRyAky0gXA=" alt="Knee Push-ups" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">Knee Push-ups</h3>
+                    <p style="font-size: 2.1rem;">Modified push-ups that build upper body strength without full bodyweight strain.</p>
+                  </div>
+                </div>
+               
+             
+                <div class="box4">
+                  <img src="https://t3.ftcdn.net/jpg/04/44/87/42/360_F_444874206_tiiOMJH50lFiUZoLlEiB0YoAfEjKmleW.jpg" alt="Glute Bridges" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">Glute Bridges</h3>
+                    <p style="font-size: 2.1rem;">Targets your glutes and lower back; great for beginners to build core strength.</p>
+                  </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="box4">
+                  <img src="https://media.istockphoto.com/id/1135331615/vector/exercise-guide-by-woman-doing-air-squat-in-2-steps-in-side-view-for-strengthens-entire-lower.jpg?s=612x612&w=0&k=20&c=IkcJfYojhqUNv-q1uxD4d7oQGUB3gAczs4qeZbd00xo=" alt="Bodyweight Squats" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">Bodyweight Squats</h3>
+                    <p style="font-size: 2.1rem;">Basic lower-body move that strengthens thighs, hips, and glutes using just your weight.</p>
+                  </div>
+                </div>
+                <div class="box4">
+                    <img src="https://st.depositphotos.com/3616161/57389/v/600/depositphotos_573891158-stock-video-leg-raise-exercise-female-workout.jpg" alt="Leg Raises" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div class="content">
+                      <h3>Leg Raises</h3>
+                      <p>A simple core exercise that strengthens your lower abdominal muscles. Lie flat and slowly raise your legs upward while keeping them straight. Great for beginners.</p>
+                    </div>
+                  </div>
+              </div>
+              
+            
+          </div>
+
+          <br><br><br><br><br><br>
+    <!-- Footer Section Start -->
+    <section class="footer">
+        <div class="box">
+            <h2 class="logo"><span>M</span>edi - <span>C</span>ares</h2>
+            <p>Your Trusted Health Companion.<br> Explore it!</p>
+        </div>
+
+        <div class="box">
+            <h2 class="logo"><span>S</span>hare</h2>
+            <a href="#"><i class="fab fa-facebook"></i> medicare</a>
+            <a href="#"><i class="fab fa-twitter"></i> @medicare</a>
+            <a href="#"><i class="fab fa-instagram"></i> medi_care</a>
+            <a href="#"><i class="fab fa-pinterest"></i> medi-care.com</a>
+        </div>
+
+        <div class="box">
+            <h2 class="logo"><span>L</span>inks</h2>
+            <a href="index.html">home</a>
+            <a href="index.html#about">about</a>
+            <a href="index.html#Vitality">Vitality</a>
+            <a href="index.html#contact">contact</a>
+            <a href="index.html#News">News</a>
+        </div>
+
+        <h1 class="credit">@Medi-Care <br> All rights reserved.</h1>
+    </section>
+    <!-- Footer Section End -->
+
+    <!-- jQuery & JS Links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

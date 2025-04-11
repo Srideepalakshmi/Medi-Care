@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f3f3f3; padding: 20px; }
+        .chat-box { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+        .message { margin: 10px 0; }
+        .user { color: blue; }
+        .bot { color: green; }
+        input[type=text] { width: 80%; padding: 10px; }
+        input[type=submit] { padding: 10px; }
+     
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f4; 
+            text-align: center; 
+        }
+       .container { 
+    width: 60%; 
+    height: auto; /* Adjust height dynamically */
+    margin: 100px auto; /* Leaves space from header & footer */
+    background: white; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+}
+
+h2 { 
+    color: #333; 
+    font-size: 24px; /* Increased text size */
+    text-align: center; /* Center the heading */
+}
+
+        form { 
+            text-align: left; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+       .symptom-group { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    width: 80%; 
+    margin-bottom: 10px;  
+    font-size: 18px; 
+    padding: 12px;  
+    background-color: #f9f9f9;  
+    border-radius: 5px;  
+    position: relative;  /* Ensures it stays correctly positioned */
+    z-index: 100;  /* Ensures it stays above the header */
+}
+
+
+label { 
+    flex: 1; 
+    text-align: left; 
+    font-weight: bold; /* Added bold for better visibility */
+}
+
+.options { 
+    display: flex; 
+    gap: 15px; 
+    flex-wrap: wrap; /* Allows wrapping if space is limited */
+}
+
+.btn { 
+    background-color: #007bff; 
+    color: white; 
+    padding: 12px 24px; /* Increased padding for better button size */
+    border: none; 
+    font-size: 18px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    margin-top: 20px; 
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.btn:hover { 
+    background-color: #0056b3; 
+}
+
+.result { 
+    font-size: 20px; 
+    color: #d9534f; 
+    margin-top: 20px; 
+    font-weight: bold; /* Added bold for better visibility */
+}
+
+        #more-info-btn { 
+            display: none; 
+            background-color:#007bff ; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            font-size: 18px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            margin-top: 20px; 
+        }
+        #more-info-btn:hover { 
+            background-color:#007bff; 
+        }
+          /* google font   */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+  /* root color  */
+  :root{
+    --blue:#0188df;
+    --black:#444d53;
+    --wight:#fff;
+  }
+
+  /* custom css  */
+  *{
+    font-family: "Roboto", sans-serif;
+    margin: 0; padding: 0;
+    text-decoration: none;
+    text-transform: capitalize;
+    outline: none;
+    box-sizing: border-box;
+    transition: all linear .2s;
+  }
+
+  html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+  }
+
+ /* button  */
+ .button{
+    height: 3.5rem;
+    width: 15rem;
+    background: var(--blue);
+    color: var(--wight);
+    font-size: 1.7rem;
+    text-transform: capitalize;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    border: .1rem solid var(--blue);
+ }
+
+ .button:hover{
+    border: .1rem solid var(--blue);
+    background: var(--wight);
+    color: var(--blue);
+    letter-spacing: .2rem;
+ }
+
+ /* heading  */
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    padding: 1rem;
+    padding-top: 8rem;
+    color: var(--blue);
+    letter-spacing: .1rem;
+}
+ /* title  */
+.title{
+    text-align: center;
+    padding: 0rem 1rem;
+    font-size: 2.5rem;
+    color: var(--black);
+    font-weight: 300;
+}
+
+
+
+  /* header navbar section start  */
+
+  header{
+    width: 96%;
+    background: var(--wight);
+    position:fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    z-index: 1000;
+  }
+
+  /* logo name  */
+  header a{
+    color: var(--black);
+  }
+
+  header a:hover{
+    color: var(--blue);
+  }
+
+  header .logo{
+    font-size: 3rem;
+  }
+
+  header .logo span{
+    color: var(--blue);
+  }
+
+  /* navbar link  */
+  header .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  header .navbar ul li{
+    margin: 0 1rem;
+  }
+
+  header .navbar ul li a{
+    font-size: 2rem;
+    color: var(--black);
+  }
+
+  header .navbar ul li a:hover{
+    color: var(--blue);
+  }
+
+ header .fa-bars{
+    font-size: 3rem;
+    color: var(--blue);
+    cursor: pointer;
+    display: none;
+ }
+
+ header .fa-times{
+    transform: rotate(180deg);
+ }
+
+
+ .header-active{
+    top: 0;
+    width: 100%;
+    box-shadow: .1rem .3rem rgba(0,0,0,.3);
+ }
+
+
+
+  /* header navbar section end  */
+
+  /* home section start  */
+
+  .home{
+    min-height: 100vh;
+    padding-top: 10rem;
+  }
+
+  .home .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  /* home images  */
+  .home .row .images img{
+    height: 75vh;
+  }
+
+  /* home heading  */
+  .home .content h1{
+    font-size: 4rem;
+    color: var(--black);
+  }
+
+  .home .content h1 span{
+    color: var(--blue);
+  }
+
+  .home .content p{
+    font-size: 1.9rem;
+    color: var(--black);
+  }
+
+
+  /* home section end  */
+
+
+  /* about section start  */
+  .about{
+    background-color: #f9f9f9;
+  }
+
+  .about .box-container{
+    padding: 4rem 0;
+  }
+
+  .about .box-container .box{
+    width: 75%;
+    margin: 4rem auto;
+    border-radius: .5rem;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--wight);
+  }
+
+  /* about images  */
+  .about .box-container .box .images{
+    height: 40rem;
+    width: 50%;
+  }
+
+  .about .box-container .box .images img{
+    height: 100%;
+    width: 100%;
+  }
+
+  /* about heading & text */
+  .about .box-container .box .content{
+    height: 100%;
+    width: 50%;
+    padding: 2rem;
+  }
+
+  .about .box-container .box .content h3{
+    font-size: 3rem;
+    color: var(--blue);
+    display: flex;
+    align-items: start;
+  }
+
+  .about .box-container .box .content p{
+    font-size: 1.5rem;
+    color: var(--black);
+    padding: 1rem 0;
+    text-align: start;
+  }
+
+  .about .box-container .box:nth-child(even){
+    flex-flow: row-reverse;
+  }
+  
+
+   /* about section end  */
+  
+  /* card section start  */
+
+  .card .box-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card .box-container .box{
+    width: 30rem;
+    margin: 2rem 1rem;
+    overflow: hidden;
+    border-radius: .5rem;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+  }
+
+  /* card images  */
+  .card .box-container .box img{
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card .box-container .box .content{
+    padding: 1rem 1.3rem;
+  }
+
+  .card .box-container .box .content h2{
+    font-size: 2rem ;
+    text-align: center;
+    color: var(--black);
+  }
+
+  .card .box-container .box .content h2:hover{
+    color: var(--blue);
+    text-decoration: underline;
+  }
+
+  .card .box-container .box .content p{
+    font-size: 1.7rem;
+    text-align: center;
+    color: var(--black);
+  }
+
+  .card .box-container .box .content .icons{
+    text-align: center;
+  }
+  
+  .card .box-container .box .content .icons a{
+    font-size: 2rem;
+    color: var(--blue);
+    text-align: center;
+    margin: 1rem;
+  }
+  /* card section end  */
+
+  /* review section start  */
+  .review .box-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+  }
+
+  .review .box-container .box{
+    width: 35rem;
+    text-align: center;
+    padding: 0 2rem;
+    margin: 4rem 1.5rem;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+  }
+
+  /* images  */
+  .review .box-container .box .images{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: .5rem 0;
+    border-top: .1rem solid #333;
+  }
+
+  .review .box-container .box .images img{
+    height: 9rem;
+    width: 9rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: .8rem 1rem;
+  }
+
+  .review .box-container .box i{
+    font-size: 6rem ;
+    margin-top: -3rem;
+    color: var(--blue);
+    opacity: .4;
+  }
+
+  
+  .review .box-container .box p{
+    color: var(--black);
+    font-size: 1.7rem;
+    padding: 2rem 0;
+  }
+
+  .review .box-container .box .info h3{
+    color: var(--blue);
+    font-size: 2rem;
+  }
+  .review .box-container .box .info span{
+    color: var(--black);
+    font-size: 2rem;
+  }
+  /* review section end */
+
+  /* contact section start  */
+  .contact{
+    background: #eee;
+  }
+
+  .contact .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 0;
+  }
+
+  .contact .row .images img{
+    width: 50vw;
+    height: 70vh;
+  }
+
+  .contact .row  .form-container{
+    width: 50%;
+    padding-right: 6rem;
+  }
+
+  .contact .row  .form-container input, textarea{
+    height: 4rem;
+    width: 100%;
+    background: var(--wight);
+    border: none;
+    border-radius: 5rem;
+    padding: 0 1rem;
+    margin: 1rem 0;
+    color: var(--blue);
+    font-size: 1.7rem;
+  }
+
+  .contact .row  .form-container input:focus , textarea:focus{
+    border: .2rem solid var(--blue);
+  }
+
+  .contact .row  .form-container textarea{
+    height: 20rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    resize: none;
+  }
+
+  .contact .row  .form-container input[type="submit"]{
+    width: 17rem;
+    background: var(--blue);
+    color: var(--wight);
+    cursor: pointer;
+    font-size: 2rem;
+  }
+
+  .contact .row  .form-container input[type="submit"]:hover{
+    background: var(--wight);
+    color: var(--blue);
+    border: .2rem solid var(--blue);
+  }
+  /* contact section end  */
+
+  /* bolg section start  */
+  .News .box-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .News .box-container .box{
+    width: 35rem;
+    margin: 2rem 1rem;
+    overflow: hidden;
+    border-radius: .5rem;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+  }
+
+  /* blog images  */
+  .News .box-container .box img{
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .News .box-container .box .content{
+    padding: 0 1.5rem;
+  }
+
+  .News .box-container .box .content h2{
+    font-size: 2rem;
+    color: var(--blue);
+  }
+
+  .News .box-container .box .content p{
+    font-size: 1.3rem;
+    color: var(--black);
+  }
+  /* bolg section end  */
+
+  /* footer section start  */
+ .footer{
+  background: var(--black);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+ }
+
+ .footer .box{
+  width: 30rem;
+  margin: 2rem;
+  text-align: center;
+ }
+
+ .footer .box:nth-child(1){
+  text-align: left;
+ }
+
+/* logo  */
+
+.footer .box .logo{
+  padding: 2rem 0;
+  font-size: 3rem;
+  color: var(--wight);
+}
+
+.footer .box .logo:hover{
+  color: var(--blue);
+}
+
+.footer .box .logo span{
+  color: var(--blue);
+}
+
+.footer .box p{
+  font-size: 1.5rem;
+  color: var(--wight);
+}
+
+.footer .box a{
+  color: var(--wight);
+  font-size: 2rem;
+  display: block;
+  padding: .2rem 0;
+}
+
+.footer .box a:hover{
+  text-decoration: underline;
+}
+
+
+.footer .credit{
+  width: 85%;
+  padding-top: 1rem;
+  font-size: 2rem;
+  color: var(--wight);
+  text-align: center;
+  border-top: .2rem solid var(--wight);
+}
+
+.footer .credit span{
+  color: var(--blue);
+  text-decoration: underline;
+  letter-spacing: .5rem;
+}
+
+
+
+  /* footer section end  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* media query  */
+
+  @media (max-width:768px){
+
+    html{
+        font-size: 55%;
+    }
+
+    header .fa-bars{
+        display: block;
+    }
+    
+    header .navbar{
+        position: fixed;
+        top: -100rem; left: 0;
+        width: 100%;
+        background: var(--wight);
+        opacity: 0;
+    }
+
+    header .navbar ul{
+        flex-flow: column;
+        padding: 2rem 0;
+    }
+
+    header .navbar ul li{
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    header .navbar ul li a{
+        font-size: 3rem;
+        display: block;
+    }
+
+    header .nav-toggle{
+        top: 5.5rem;
+        opacity: 1;
+    }
+
+    /* home media query  */
+
+    .home .row{
+        flex-flow: column;
+    }
+
+    .home .row .content{
+        text-align: center;
+    }
+
+    /* home images  */
+    .home .row .images img{
+        width: 100%;
+    }
+
+  /* about media query  */
+   .about .box-container .box{
+    flex-flow: column;
+    width: 90%;
+   }
+
+   .about .box-container .box:nth-child(even){
+    flex-flow: column;
+   }
+
+   .about .box-container .box .images{
+    width: 100%;
+   }
+
+   .about .box-container .box .content{
+    width: 100%;
+   }
+   
+   /* contact form  */
+   .contact .row{
+    flex-flow: column;
+   }
+
+   .contact .row .images img{
+    height: 50vh;
+    width: 90vw;
+   }
+
+   .contact .row .form-container{
+    width: 90%;
+    padding: 0;
+   }
+
+
+      
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0277bd;
+    padding: 10px 20px;
+    color: white;
+    z-index: 1000;
+}
+
+
+
+h1, h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: white;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/017/398/144/non_2x/healthcare-services-annual-health-checkup-heart-rate-pulse-measurement-pills-antibiotics-dna-diseases-genes-illustration-on-light-blue-hexagonal-background-health-and-medicine-concept-vector.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* overflow: hidden; */ /* Try disabling this temporarily */
+}
+
+
+}
+
+.chat-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #f9f9f9;
+    border-radius: 10px;
+    background: #f9f9f9;
+}
+
+
+.chat-box {
+    padding: 10px;
+    height: 100%;  /* Fill the available space */
+    overflow-y: auto;
+    border-bottom: 1px solid #f9f9f9;
+    flex-grow: 1;  /* Allow chat-box to grow and take space */
+}
+
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px 0;
+}
+
+.message-container.bot {
+    flex-direction: row;  /* Bot messages on the left */
+}
+
+.message-container.user {
+    flex-direction: row-reverse;  /* User messages on the right */
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 5px;
+    background-size: cover;
+    background-position: center;
+}
+
+.bot .profile-icon {
+    background-image: url('https://i.pinimg.com/736x/01/a5/90/01a590499049d2dbf10e8f7b845dbea9.jpg');  /* Replace with bot logo image */
+}
+
+.user .profile-icon {
+    background-image: url('https://i.pinimg.com/474x/3e/79/ed/3e79edd8850e4f1d73052f548f2f399d.jpg');  /* Replace with user logo image */
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.message {
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 80%;
+    display: inline-block;
+    text-size:2.1rem;
+}
+
+.bot .message {
+    background-color: #e1f5fe;
+    color: #0277bd;
+    font-size: 1.7rem;
+}
+
+.user .message {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+    font-size: 1.7rem;
+}
+
+.input-box {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);  /* Semi-transparent input box */
+
+}
+        .input-box input {
+    font-size: 2.1rem;
+}
+.input-box {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent input box */
+}
+
+.voice-icon {
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 10px; /* Add some spacing between the voice icon and text box */
+}
+
+.voice-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    outline: none; /* Remove outline on focus */
+}
+
+.send-button {
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 10px; /* Add some spacing between the text box and send button */
+}
+
+.send-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.send-button:hover img {
+    filter: brightness(0.8);
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;  /* Remove outline on focus */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0277bd;
+    color: white;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #01579b;
+}
+
+        
+               /* Hide the top Google Translate bar */
+.skiptranslate {
+    display: none !important;
+}
+
+/* Adjust body positioning */
+body {
+    top: 0 !important;
+    position: static !important;
+}
+
+/* Make "Powered by Google Translate" text and logo white */
+.goog-logo-link,
+.goog-te-gadget span:not(.goog-te-menu-value) {
+    color: white !important;
+    filter: brightness(0) invert(1); /* Makes the logo white */
+}
+/* Overlay white box completely over the "Powered by" */
+#google_translate_element .goog-te-gadget {
+    position: relative;
+    z-index: 1;
+}
+
+/* Left-aligned white overlay box */
+#google_translate_element::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0; /* Align to right */
+    height: 2.2em;
+    width: 13.2%;
+    background-color: white;
+    z-index: 2;
+}
+
+
+
+
+/* Ensure language dropdown remains visible */
+.goog-te-gadget,
+.goog-te-combo {
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+        .recording-indicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 0, 0, 0.85);
+  color: white;
+  font-size: 1.5em;
+  padding: 15px 30px;
+  border-radius: 10px;
+  z-index: 9999;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.05); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+
+    
+    </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Navbar Toggle Functionality
+        document.querySelector(".fa-bars").addEventListener("click", function () {
+            this.classList.toggle("fa-times");
+            document.querySelector(".navbar").classList.toggle("nav-toggle");
+        });
+
+        // Scroll Event for Header Styling
+        window.addEventListener("scroll", function () {
+            document.querySelector(".fa-bars").classList.remove("fa-times");
+            document.querySelector(".navbar").classList.remove("nav-toggle");
+
+            if (window.scrollY > 30) {
+                document.querySelector("header").classList.add("header-active");
+            } else {
+                document.querySelector("header").classList.remove("header-active");
+            }
+        });
+
+        // Contact Form Submission
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form values
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !phone || !message) {
+                alert("Please fill in all fields before submitting.");
+                return;
+            }
+
+            let formData = { name, email, phone, message };
+
+            // Send data to backend
+            fetch("http://localhost:5000/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Query sent successfully!");
+                document.getElementById("contactForm").reset(); // Reset form after submission
+            })
+            .catch(error => {
+                alert("Error submitting form. Please try again.");
+                console.error("Submission Error:", error);
+            });
+        });
+    });
+
+    function predictDisease() {
+        let symptoms = {};
+        document.querySelectorAll("input[type=radio]:checked").forEach((input) => {
+            symptoms[input.name] = input.value === "Yes" ? 1 : 0;
+        });
+
+        fetch("/predict", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ symptoms: symptoms })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("disease").innerText = data.disease || "Error predicting disease";
+            document.getElementById("suggestion").innerText = data.suggestion || "No suggestions available";
+
+            // Show button only if disease is predicted
+            document.getElementById("more-info-btn").style.display =
+                data.disease && data.disease !== "Normal (No Disease)" ? "block" : "none";
+        })
+        .catch(error => console.error("Error:", error));
+    }
+</script>
+
+
+</head>
+<body>
+ <!-- header navbar section start  -->
+    <header>
+        <a href="#" class="logo"><b><span>M</span>edi - <span>C</span>ares.</b></a>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="http://127.0.0.1:5502/index.html">home</a></li>
+                <li><a href="http://127.0.0.1:5502/index.html#about">about</a></li>
+                <li><a href="http://127.0.0.1:5502/index.html#Vitality">Vitality</a></li>
+                <li><a href="http://127.0.0.1:5502/index.html#review">Reviews</a></li>
+                <li><a href="http://127.0.0.1:5502/index.html#News">News</a></li>
+                  <li><a href="http://127.0.0.1:5502/index.html#contact">contact</a></li>
+                 <script>
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+            </script>
+            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+
+                  
+            </ul>
+        </nav>
+
+        <div class="fas fa-bars"></div>
+    </header>
+    <br><br><br><br><br><br><br><br><br>
+    <div class="chat-container">
+  <h1 style="color: #0188df; font-size: 2.2rem;">Welcome to Medi-Care Bot!</h1><br><br>
+  <h2 style="font-size: 2.1rem">We're here to help you</h2><br><br>
+
+  <div class="chat-box" id="chatBox"></div><br><br>
+
+  <div class="input-box">
+    <input type="text" id="userInput" placeholder="Type your message here..." onkeypress="handleKeyPress(event)">
+    
+    <button class="voice-icon">
+      <img src="https://img.icons8.com/ios-glyphs/30/microphone.png" alt="Voice Icon">
+    </button>
+
+    <button class="send-button" onclick="sendMessage()">
+      <img src="https://img.icons8.com/ios-glyphs/30/filled-sent.png" alt="Send Icon">
+    </button>
+  </div>
+</div>
+
+<!-- ✅ Place this OUTSIDE the chat-container so it's centered across full screen -->
+<div id="recordingIndicator" class="recording-indicator" style="display: none;">
+  🎙️ Listening...
+</div>
+
+
+
+<!-- JavaScript -->
+<script>
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      sendMessage();
+    }
+  }
+
+  function sendMessage() {
+    const userInput = document.getElementById("userInput").value.trim();
+    const chatBox = document.getElementById("chatBox");
+
+    if (!userInput) return;
+
+    // Display user message
+    displayMessage(userInput, "user");
+    document.getElementById("userInput").value = "";
+
+    // Send to server
+    fetch("/get", {
+      method: "POST",
+      body: new URLSearchParams({ msg: userInput }),
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    })
+      .then(response => response.text())
+      .then(reply => {
+        displayMessage(reply, "bot");
+      })
+      .catch(() => {
+        displayMessage("❌ Server error. Try again later.", "bot");
+      });
+  }
+
+  function displayMessage(text, sender) {
+    const chatBox = document.getElementById("chatBox");
+    const messageContainer = document.createElement("div");
+    messageContainer.className = `message-container ${sender}`;
+
+    const profileIcon = document.createElement("div");
+    profileIcon.className = "profile-icon";
+    messageContainer.appendChild(profileIcon);
+
+    const message = document.createElement("div");
+    message.className = `message ${sender}`;
+    message.textContent = text; // Use textContent to avoid HTML injection
+    messageContainer.appendChild(message);
+
+    chatBox.appendChild(messageContainer);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const voiceBtn = document.querySelector(".voice-icon");
+    const userInputField = document.getElementById("userInput");
+    const recordingIndicator = document.getElementById("recordingIndicator");
+
+    if ("webkitSpeechRecognition" in window) {
+      const recognition = new webkitSpeechRecognition();
+      recognition.continuous = false;
+      recognition.lang = "en-US";
+      recognition.interimResults = false;
+
+      voiceBtn?.addEventListener("click", () => {
+        console.log("🎤 Voice recognition started");
+        recognition.start();
+        if (recordingIndicator) recordingIndicator.style.display = "block";
+      });
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        userInputField.value = transcript;
+        sendMessage();
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
+        alert("🎤 Voice recognition failed. Please try again.");
+        if (recordingIndicator) recordingIndicator.style.display = "none";
+      };
+
+      recognition.onend = () => {
+        if (recordingIndicator) recordingIndicator.style.display = "none";
+      };
+    } else {
+      alert("⚠️ Your browser does not support voice recognition. Please use Google Chrome.");
+    }
+  });
+</script>
+
+     </div>
+
+
+
+    
+<br><br><br><br><br><br><br><br><br>
+     <!-- Footer Section Start -->
+    <section class="footer">
+        <div class="box">
+            <h2 class="logo"><span>M</span>edi - <span>C</span>ares</h2>
+            <p>Your Trusted Health Companion.<br> Explore it!</p>
+        </div>
+    </div>
+        <div class="box">
+            <h2 class="logo"><span>S</span>hare</h2>
+            <a href="#"><i class="fab fa-facebook"></i> medicare</a>
+            <a href="#"><i class="fab fa-twitter"></i> @medicare</a>
+            <a href="#"><i class="fab fa-instagram"></i> medi_care</a>
+            <a href="#"><i class="fab fa-pinterest"></i> medi-care.com</a>
+        </div>
+
+        <div class="box">
+            <h2 class="logo"><span>L</span>inks</h2>
+            <a href="http://127.0.0.1:5502/index.html">home</a>
+            <a href="http://127.0.0.1:5502/index.html#about">about</a>
+            <a href="http://127.0.0.1:5502/index.html#Vitality">Vitality</a>
+          
+            <a href="http://127.0.0.1:5502/index.html#News">News</a>
+              <a href="http://127.0.0.1:5502/index.html#contact">contact</a>
+        </div>
+
+        <h1 class="credit">@Medi-Care <br> All rights reserved.</h1>
+    </section>
+</body>
+</html>

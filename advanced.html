@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medi-Care Website</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+<style>
+   .disease-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjusts column spacing */
+}
+
+.disease-card {
+    width: 420px;
+    height: 420px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 50px; /* Increases row spacing */
+}
+
+    .disease-card:hover {
+        transform: scale(1.1); /* Slight zoom effect */
+    }
+    
+    .disease-card img {
+        width: 100%;
+        height: 220px; /* Adjusted image height */
+        object-fit: cover;
+        border-radius: 8px 8px 0 0; /* Matching border-radius */
+    }
+    
+    .content {
+        padding: 12px; /* Adjusted padding */
+        text-align: center;
+    }
+    .container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 per row */
+}
+
+               /* Hide the top Google Translate bar */
+               .skiptranslate {
+    display: none !important;
+}
+
+/* Adjust body positioning */
+body {
+    top: 0 !important;
+    position: static !important;
+}
+
+               /* Hide the top Google Translate bar */
+.skiptranslate {
+    display: none !important;
+}
+
+/* Adjust body positioning */
+body {
+    top: 0 !important;
+    position: static !important;
+}
+
+/* Make "Powered by Google Translate" text and logo white */
+.goog-logo-link,
+.goog-te-gadget span:not(.goog-te-menu-value) {
+    color: white !important;
+    filter: brightness(0) invert(1); /* Makes the logo white */
+}
+/* Overlay white box completely over the "Powered by" */
+#google_translate_element .goog-te-gadget {
+    position: relative;
+    z-index: 1;
+}
+
+/* Left-aligned white overlay box */
+#google_translate_element::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0; /* Align to right */
+    height: 2.2em;
+    width: 13.5%;
+    background-color: white;
+    z-index: 2;
+}
+
+
+
+
+
+/* Ensure language dropdown remains visible */
+.goog-te-gadget,
+.goog-te-combo {
+    display: inline-block !important;
+    visibility: visible !important;
+}
+</style>    
+</head>
+
+<body>
+
+    <!-- header navbar section start  -->
+    <header>
+        <a href="#" class="logo"><b><span>M</span>edi - <span>C</span>are</b></a>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="index.html#about">about</a></li>
+                <li><a href="index.html#Vitality">Vitality</a></li>
+                <li><a href="index.html#review">Reviews</a></li>
+                <li><a href="index.html#News">News</a></li>
+                <li><a href="index.html#contact">contact</a></li>
+                <script>
+                  function googleTranslateElementInit() {
+                      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                  }
+                  </script>
+                  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      
+            </ul>
+        </nav>
+
+        <div class="fas fa-bars"></div>
+    </header>
+    <!-- header navbar section end  -->
+
+    <!-- Disease Cards Section Start -->
+    <section class="card">
+        <div class="container">
+            <h1 class="heading"><b>Welcome to Medi-Cares</b></h1>
+            <h3 class="title"><i><b>Advanced Wellness</b></i></h3><br><br>
+            <h3 class="title"><b></b></h3><br><br>
+            <div id="chatbot-notification">Need assistance? Dr. SymptoCare is here to help you out!</div>
+            <a href="https://flask-backend-xyz.onrender.com/" id="chatbot-circle" title="Chat with Dr.SymptoCare">
+                <img src="https://i.pinimg.com/736x/01/a5/90/01a590499049d2dbf10e8f7b845dbea9.jpg" alt="Dr.SymptoCare">
+            </a>
+            <div class="disease-container" style="display: flex; flex-wrap: wrap;justify-content: space-between;">
+                <!-- 1 -->
+                <div class="box5">
+                  <img src="https://media.istockphoto.com/id/1147316173/vector/exercise-guide-with-woman-doing-the-squat-thrust-position-in-5-step.jpg?s=612x612&w=0&k=20&c=vlk4k_J8qxAXbIFKYV3FvxrRp0HcL5Fy3QCuTanN_pQ=" alt="Jumping Jacks" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">Burpees</h3>
+                    <p style="font-size: 2.1rem;">Full-body explosive exercise that improves strength and cardio endurance.</p>
+                  </div>
+                </div>
+                
+                <!-- 2 -->
+                <div class="box5">
+                  <img src="https://media.istockphoto.com/id/1471729407/video/plank-exercise-tutorial-female-workout-on-mat.jpg?s=640x640&k=20&c=8zNchkiUVrlfZPBR2BcMClPByR75DemJwdJGnAh8HxI=" alt="Wall Sit" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">Plank to Push-up</h3>
+                    <p style="font-size: 2.1rem;">Targets your chest, triceps, and core. Builds stability and upper body strength.</p>
+                  </div>
+                </div>
+              
+                <!-- 3 -->
+                <div class="box5">
+                  <img src="https://media.istockphoto.com/id/957699448/vector/step-of-doing-the-mountain-climber-exercise-by-healthy-woman.jpg?s=612x612&w=0&k=20&c=VNul5Y5u4xaNBFhfXl2MxeWXek3jUwEAC4_axjLgQos=" alt="Knee Push-ups" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">Mountain Climbers</h3>
+                    <p style="font-size: 2.1rem;">High-intensity cardio move that also works your abs and legs.</p>
+                  </div>
+                </div>
+               
+             
+                <div class="box5">
+                  <img src="https://static.vecteezy.com/system/resources/previews/023/686/385/non_2x/woman-doing-single-leg-squats-pistol-squats-vector.jpg" alt="Glute Bridges" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">Pistol Squats</h3>
+                    <p style="font-size: 2.1rem;">Single-leg squats that challenge balance, flexibility, and leg strength.</p>
+                  </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="box5">
+                  <img src="https://www.shutterstock.com/image-vector/woman-doing-high-box-jump-600nw-1981139660.jpg" alt="Bodyweight Squats" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">Box Jumps</h3>
+                    <p style="font-size: 2.1rem;">Plyometric move that builds power in legs and improves explosive strength.</p>
+                  </div>
+                </div>
+
+
+                <div class="box5">
+                    <img src="https://p.turbosquid.com/ts-thumb/Rl/i2U6V7/gF/onehandpushups0000/png/1615989019/600x600/fit_q87/aefea355204d02988d616cb6c25670fc7fedb7b1/onehandpushups0000.jpg" alt="Leg Raises" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div class="content">
+                      <h3 style="font-size: 2.2rem;">One-Arm Push-up</h3>
+                      <p style="font-size: 2.1rem;">Demands superior chest, arm, and core strength with excellent control.</p>
+                    </div>
+                  </div>
+             
+              
+
+             
+              <div class="box5">
+                <img src="https://static.vecteezy.com/system/resources/previews/034/714/187/non_2x/man-doing-l-sit-leg-raises-bodyweight-fitness-abs-workout-exercise-an-educational-illustration-on-a-white-background-vector.jpg" alt="Glute Bridges" style="width: 100%; height: 300px; object-fit: cover;">
+                <div class="content">
+                  <h3 style="font-size: 2.2rem;">L-Sit</h3>
+                  <p style="font-size: 2.1rem;">Core-intensive move requiring strength and balance while suspending body.</p>
+                </div>
+              </div>
+
+             
+              <div class="box5">
+                <img src="https://www.wikihow.com/images/thumb/c/cb/Do-Dragon-Flags-Step-12.jpg/v4-460px-Do-Dragon-Flags-Step-12.jpg" alt="Bodyweight Squats" style="width: 100%; height: 300px; object-fit: cover;">
+                <div class="content">
+                  <h3 style="font-size: 2.2rem;">Dragon Flags</h3>
+                  <p style="font-size: 2.1rem;">Advanced core move made famous by Bruce Lee; extreme core control.</p>
+                </div>
+              </div>
+
+
+              <div class="box5">
+                  <img src="https://cdn.shopify.com/s/files/1/1497/9682/files/V_Ups_with_Medicine_Ball.jpg?v=1668778918" alt="Leg Raises" style="width: 100%; height: 300px; object-fit: cover;">
+                  <div class="content">
+                    <h3 style="font-size: 2.2rem;">V-Ups</h3>
+                    <p style="font-size: 2.1rem;">Core-crushing movement that activates both upper and lower abs.</p>
+                  </div>
+                </div>
+            
+            
+
+            <div class="box5">
+              <img src="https://media.istockphoto.com/id/923748448/vector/pull-up-exercises-using-outdoor-chin-up-bar-vector-cartoon-character-illustration.jpg?s=612x612&w=0&k=20&c=nYjdUrt7VJmqJSnUPFFIMwcE6gvtthaoVFgOFwFrJGY=" alt="Glute Bridges" style="width: 100%; height: 300px; object-fit: cover;">
+              <div class="content">
+                <h3 style="font-size: 2.2rem;">Muscle-ups</h3>
+                <p style="font-size: 2.1rem;">Combination of pull-up and dip requiring explosive upper-body strength.</p>
+              </div>
+            </div>
+
+          
+            <div class="box5">
+              <img src="https://media.istockphoto.com/id/1319561670/vector/men-and-women-of-different-nationalities-run.jpg?s=612x612&w=0&k=20&c=gJ_g8gKdZ2PSDoenfYGg2qkI3hLBzqEE06RwDMdX2p0=" alt="Bodyweight Squats" style="width: 100%; height: 300px; object-fit: cover;">
+              <div class="content">
+                <h3 style="font-size: 2.2rem;">Sprints</h3>
+                <p style="font-size: 2.1rem;">High-intensity running for fat loss, endurance, and explosive performance.</p>
+              </div>
+            </div>
+
+
+            <div class="box5">
+                <img src="https://static.vecteezy.com/system/resources/previews/020/537/749/non_2x/woman-doing-explosive-jumping-alternating-lunges-exercise-in-3-steps-for-lower-body-and-hamstring-flat-illustration-isolated-on-white-background-vector.jpg" alt="Leg Raises" style="width: 100%; height: 300px; object-fit: cover;">
+                <div class="content">
+                  <h3 style="font-size: 2.2rem;">Jump Lunges</h3>
+                  <p style="font-size: 2.1rem;">Plyometric version of lunges for building strength and coordination.</p>
+                </div>
+              </div>
+          </div>
+            
+        </div>
+          </div>
+        </div>
+          
+    <!-- Footer Section Start -->
+    <section class="footer">
+        <div class="box">
+            <h2 class="logo"><span>M</span>edi - <span>C</span>ares</h2>
+            <p>Your Trusted Health Companion.<br> Explore it!</p>
+        </div>
+
+        <div class="box">
+            <h2 class="logo"><span>S</span>hare</h2>
+            <a href="#"><i class="fab fa-facebook"></i> medicare</a>
+            <a href="#"><i class="fab fa-twitter"></i> @medicare</a>
+            <a href="#"><i class="fab fa-instagram"></i> medi_care</a>
+            <a href="#"><i class="fab fa-pinterest"></i> medi-care.com</a>
+        </div>
+
+        <div class="box">
+            <h2 class="logo"><span>L</span>inks</h2>
+            <a href="index.html">home</a>
+            <a href="index.html#about">about</a>
+            <a href="index.html#Vitality">Vitality</a>
+            <a href="index.html#contact">contact</a>
+            <a href="index.html#News">News</a>
+        </div>
+
+        <h1 class="credit">@Medi-Care <br> All rights reserved.</h1>
+    </section>
+    <!-- Footer Section End -->
+
+    <!-- jQuery & JS Links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
