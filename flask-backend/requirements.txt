@@ -22,6 +22,6 @@ numpy
 gunicorn
 numpy<2
 tensorflow==2.13.0
-numpy==1.24.3
+numpy==1.26.4
 
 
