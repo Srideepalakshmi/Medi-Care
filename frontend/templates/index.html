@@ -642,7 +642,7 @@ form, .review-container {
 
   async function loadReviews() {
     try {
-      const res = await axios.get('https://medi-care-production.up.railway.app/'); // ✅ Correct API GET endpoint
+      const res = await axios.get('https://medi-care-production.up.railway.app/api/reviews'); // ✅ Correct GET endpoint
       allReviews = res.data;
       updateSummary();
       renderReviews(false);
@@ -734,7 +734,7 @@ form, .review-container {
     const rating = ratingInput.value;
 
     try {
-      await axios.post('https://medi-care-production.up.railway.app/', { // ✅ Correct POST endpoint
+      await axios.post('https://medi-care-production.up.railway.app/api/reviews', { // ✅ Correct POST endpoint
         name, email, rating, comment
       });
 
@@ -752,6 +752,7 @@ form, .review-container {
     document.getElementById('viewLessBtn').addEventListener('click', () => renderReviews(false));
   });
 </script>
+
 <!-- review ends -->
 
 
