@@ -5,14 +5,14 @@ import joblib
 app = Flask(__name__)
 
 # === Load CSV file ===
-df = pd.read_csv("diabetes_data_upload.csv")
+df = pd.read_csv("flask-backend/diabetes_data_upload.csv")
 
 # === Extract symptom columns ===
 symptom_columns = [col for col in df.columns if col not in ["Age", "Gender", "class", "Disease", "Suggestion"]]
 
 # === Load model and vectorizer ===
-model = joblib.load("dia_model.pkl")
-vectorizer = joblib.load("dia_vectorizer.pkl")
+model = joblib.load("flask-backend/dia_model.pkl")
+vectorizer = joblib.load("flask-backend/dia_vectorizer.pkl")
 
 
 html_template = """
@@ -1115,5 +1115,5 @@ def predict():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Render provides PORT dynamically
+    port = int(os.environ.get("PORT", 5004))  # Render provides PORT dynamically
     app.run(host="0.0.0.0", port=port, debug=True)
