@@ -3,7 +3,7 @@ from sklearn.preprocessing import MultiLabelBinarizer, LabelEncoder
 from sklearn.neural_network import MLPClassifier
 import joblib
 import os
-
+from tensorflow.keras.models import load_model
 
 # Create backend directory if not exists
 os.makedirs("flask-backend", exist_ok=True)
