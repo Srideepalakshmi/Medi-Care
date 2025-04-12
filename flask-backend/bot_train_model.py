@@ -28,7 +28,7 @@ model = MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=1000, random_state=4
 model.fit(X, y)
 
 # Save model and encoders using joblib (use .pkl extension for scikit-learn models)
-joblib.dump(model, "flask-backend/ann_model.h5")
+joblib.dump(model, "flask-backend/bot_model.pkl")
 joblib.dump(symptom_binarizer, "flask-backend/symptom_binarizer.pkl")
 joblib.dump(label_encoder, "flask-backend/label_encoder.pkl")
 
