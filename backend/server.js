@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ MongoDB Connection
-mongoose.connect('your-mongodb-connection-string')
+mongoose.connect('mongodb+srv://medi-care:srideepa%4017@medicare-cluster.ib986vh.mongodb.net/reviewDB')
   .then(() => console.log("✅ MongoDB Connected"))
   .catch(err => console.error("❌ MongoDB connection error:", err));
 
