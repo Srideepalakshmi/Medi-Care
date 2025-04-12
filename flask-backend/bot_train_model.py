@@ -26,8 +26,8 @@ y = label_encoder.fit_transform(df["Type"])
 model = MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=1000, random_state=42)
 model.fit(X, y)
 
-# Save model and encoders using joblib
-joblib.dump(model, "flask-backend/ann_model.h5")
+# Save model and encoders using joblib (use .pkl extension for scikit-learn models)
+joblib.dump(model, "flask-backend/ann_model.pkl")
 joblib.dump(symptom_binarizer, "flask-backend/symptom_binarizer.pkl")
 joblib.dump(label_encoder, "flask-backend/label_encoder.pkl")
 
