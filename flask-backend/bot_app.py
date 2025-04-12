@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # Load model and resources
-model = load_model("flask-backend/ann_model")  # Load from folder instead of .h5
+model = load_model("flask-backend/ann_model.h5")  # Load from folder instead of .h5
 label_encoder = joblib.load("flask-backend/label_encoder.pkl")
 symptom_binarizer = joblib.load("flask-backend/symptom_binarizer.pkl")
 doctor_map = joblib.load("flask-backend/doctor_map.pkl")
