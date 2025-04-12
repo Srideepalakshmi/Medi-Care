@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # Load model and resources
-model = joblib.load("flask-backend/bot_model.pkl")  # Use joblib.load for scikit-learn model
+model = joblib.load("flask-backend/ann_model.h5")  # Use joblib.load for scikit-learn model
 label_encoder = joblib.load("flask-backend/label_encoder.pkl")
 symptom_binarizer = joblib.load("flask-backend/symptom_binarizer.pkl")
 
