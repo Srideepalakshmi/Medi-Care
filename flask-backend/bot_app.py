@@ -101,5 +101,5 @@ def chatbot_response():
                 "For more information, please consult with a doctor or visit our website.")
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 50012))  # Render provides PORT dynamically
+    port = int(os.environ.get("PORT", 5000))  # Render provides PORT dynamically
     app.run(host="0.0.0.0", port=port, debug=True)
