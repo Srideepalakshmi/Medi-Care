@@ -4,4 +4,8 @@ services:
     env: python
     buildCommand: pip install -r flask-backend/requirements.txt
     startCommand: python flask-backend/covid_app.py
-    
+    envVars:
+      - key: FLASK_ENV
+        value: production
+    build:
+      context: flask-backend
