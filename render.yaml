@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: medi-care
+    env: python
+    buildCommand: pip install -r flask-backend/requirements.txt
+    startCommand: python flask-backend/app.py
+    runtime: python-3.10.13
