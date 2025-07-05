@@ -3,5 +3,5 @@ services:
     name: medi-care type1
     env: python
     buildCommand: pip install -r flask-backend/requirements.txt
-    startCommand: python flask-backend/app.py
+    startCommand: python flask-backend/covid_app.py
     
